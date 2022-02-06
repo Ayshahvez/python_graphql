@@ -1,0 +1,34 @@
+schema {
+    query: Query
+}
+
+type transfer_token{
+    id: ID
+    token_address: String
+    from_address: String
+    to_address: String
+    transaction_hash: String
+    block_hash: String
+    value: String
+    log_index: String
+    block_number: String
+    block_timestamp: String
+}
+
+type transfer_token_Results{
+    success: Boolean!
+    errors: [String]
+    transfer_token: [transfer_token]
+}
+
+type transfer_token_Result{
+    success: Boolean!
+    errors: [String]
+    transfer_token: transfer_token
+}
+
+
+type Query {
+    query_getall_transfer_tokens: transfer_token_Results!
+    query_get_transfer_token(id:Int): transfer_token_Results!
+}
