@@ -3,13 +3,15 @@ from ariadne import load_schema_from_path, make_executable_schema, \
     graphql_sync, snake_case_fallback_resolvers, ObjectType
 from ariadne.constants import PLAYGROUND_HTML
 from flask import request, jsonify
-from api.queries import query_getall_transfer_tokens_resolver,query_get_transfer_token_resolver
+from api.queries import query_getall_transfer_tokens_resolver,query_get_transfer_token_resolver, query_getall_tokens_resolver
 
 query = ObjectType("Query")
 
 query.set_field("query_getall_transfer_tokens", query_getall_transfer_tokens_resolver)
 
 query.set_field("query_get_transfer_token", query_get_transfer_token_resolver)
+
+query.set_field("query_getall_tokens", query_getall_tokens_resolver)
 
 type_defs = load_schema_from_path("schema.graphql")
 schema = make_executable_schema(
@@ -30,5 +32,5 @@ def graphql_server():
     )
     status_code = 200 if success else 400
     return jsonify(result), status_code
-
+    
 app.run

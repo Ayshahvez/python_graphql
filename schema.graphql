@@ -15,6 +15,21 @@ type transfer_token{
     block_timestamp: String
 }
 
+type tokens{
+id:ID
+address: String
+symbol:String
+name:String
+decimals: String
+total_supply:String
+}
+
+type tokens_results{
+    success: Boolean!
+    errors: [String]
+    tokens: tokens
+}
+
 type transfer_token_Results{
     success: Boolean!
     errors: [String]
@@ -27,8 +42,9 @@ type transfer_token_Result{
     transfer_token: transfer_token
 }
 
-
 type Query {
     query_getall_transfer_tokens: transfer_token_Results!
     query_get_transfer_token(id:Int): transfer_token_Results!
+
+    query_getall_tokens: tokens_results!
 }
