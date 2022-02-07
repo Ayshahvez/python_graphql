@@ -31,5 +31,8 @@ Python was used to prepare csv objects in batches and Push to Postgres database 
 This operation was completed in about 2 hours with current hardware spefications as described.
 
 4.
+For the purposes of a Production Application, there needs to be careful consideration of the tools/stack to be used for implementation since focus is on performing operations on massive amount of structures and unstructured data across multiple environments. I really like how the mentioned tools (Python, Postgres, Apollo GraphQL API, Flask Web) work together to get the operation done from scratch. More tests could be done to compare performance of other popular tools such as Node.JS in integrating massive amount of data from various API systems.
 
-5
+5.
+Docker/ Kubernetes are most popular deployment platforms to package the core of the final application to make sure proper functioning across various environments.
+
