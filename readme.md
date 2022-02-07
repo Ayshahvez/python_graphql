@@ -31,6 +31,9 @@ Python was used to prepare the csv objects in batches in order to push to the Po
 This operation was completed in about 2 hours with my current hardware spefications as described.
 ingested into Postgres was 219,222,954 rows from token-transfers as well as 144,716 rows from the token folders.
 
+Performance was good regarding ingestion of data in GraphQL API, I had designed query to select n number of records directly from Postges database as a Response via the API.
+Otherwise other queries could be designed with arguments to control data flow via GraphQL API Response.
+
 
 4.
 For the purposes of a Production Application, there needs to be careful consideration of the tools/stack to be used for implementation since focus is on performing operations on massive amount of structured and unstructured data across multiple environments. I really like how the mentioned tools (Python, Postgres, Apollo GraphQL API, Flask Web) work together to get the operation done from scratch. More tests could be done to compare performance of other popular tools such as Node.JS in integrating massive amount of data from various API systems.
