@@ -27,7 +27,7 @@ total_supply:String
 type tokens_results{
     success: Boolean!
     errors: [String]
-    tokens: tokens
+    tokens: [tokens]
 }
 
 type transfer_token_Results{
@@ -42,9 +42,10 @@ type transfer_token_Result{
     transfer_token: transfer_token
 }
 
+
 type Query {
     query_getall_transfer_tokens: transfer_token_Results!
     query_get_transfer_token(id:Int): transfer_token_Results!
-
     query_getall_tokens: tokens_results!
+    query_get_tokens(id:Int): tokens_results!
 }

@@ -1,4 +1,3 @@
-from unicodedata import name
 from app import db
 
 class Tokens(db.Model):
@@ -10,7 +9,7 @@ class Tokens(db.Model):
       decimals= db.Column(db.String)
       total_supply = db.Column(db.String)
  
-        def to_dict(self):
+      def to_dict(self):
             return{   
             "address": self.address,
             "id":self.id,
@@ -20,10 +19,9 @@ class Tokens(db.Model):
             "total_supply":self.decimals
             }
 
-
-
-class Token_Transfers(db.Model):  
-        __tablename__ = 'Token_Transfers'     
+            
+class Token_Transfers(db.Model):   
+        __tablename__ = 'Token_Transfers'
         token_address = db.Column(db.String)
         from_address = db.Column(db.String)
         to_address = db.Column(db.String)
@@ -46,5 +44,5 @@ class Token_Transfers(db.Model):
                 "value" : self.value,
                 "log_index" : self.log_index,
                 "block_number" : self.block_number,
-                "block_timestamp": self.block_timestamp              
+                "block_timestamp": self.block_timestamp         
             }

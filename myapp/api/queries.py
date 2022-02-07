@@ -13,8 +13,27 @@ def query_getall_tokens_resolver(obj, info):
             "success": False,
             "errors": [str(error)]
         }
-    print(payload)
+    #print(payload)
     return payload
+
+def query_get_token_resolver(obj, info, id):
+    try:
+        #transfer_token = Tokens.query.limit(id).all()
+        # [:5]   query.filter().limit(id).all()
+        tokens = [tokens.to_dict() for tokens in Tokens.query.limit(id)]
+        payload = {
+            "success": True,
+            "tokens": tokens
+        }
+        #print(payload)
+    except Exception as error:
+        payload = {
+            "success": False,
+            "errors": [str(error)]
+        }
+    
+    return payload
+
 
 def query_getall_transfer_tokens_resolver(obj, info):
     try:
@@ -29,7 +48,7 @@ def query_getall_transfer_tokens_resolver(obj, info):
             "success": False,
             "errors": [str(error)]
         }
-    print(payload)
+    #print(payload)
     return payload
 
 from ariadne import convert_kwargs_to_snake_case
@@ -52,3 +71,4 @@ def query_get_transfer_token_resolver(obj, info, id):
         }
     
     return payload
+
